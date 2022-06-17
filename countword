@@ -1,0 +1,18 @@
+filename = input('Name of the file: ')
+filestr = open(filename)
+
+counts = dict()
+for line in filestr:
+    words = line.split()
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
+
+bigcount = None
+bigword = None
+for key,value in counts.items():
+    if bigcount is None or value > bigcount:
+        bigword = key
+        bigcount = value
+
+print(counts)
+print(bigword, bigcount)
