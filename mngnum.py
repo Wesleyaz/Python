@@ -1,8 +1,6 @@
 from contextlib import nullcontext
 from http.client import MOVED_PERMANENTLY
 
-
-print('Hello World')
 inp=input('What the number? ')
 try:
     numb=int(inp)
