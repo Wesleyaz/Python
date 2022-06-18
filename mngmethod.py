@@ -1,9 +1,8 @@
-
 order = 'QRBPVFDEIMwHNXSGYJULAZOTCK'
 order = order.lower()
 words = ['wesley','wycliffe','wycli','martha']
 
-class Solution:
+class AlienDict:
     def issorted(order, words):
         for i in range(len(words) - 1):
             w1, w2 = words[i], words[i+1]
@@ -21,7 +20,55 @@ class Solution:
                     break
         return "True"
 
-Solution.issorted(order, words)
+#AlienDict.issorted(order, words)
+carac = dict()
+carac2 = dict()
+class Anagram:
+    def isanagram(word1, word2):
+        if len(word1) != len(word2):
+            print('No')
+            return False
+        for i in range(len(word1)):
+            carac2[word2[i]] = carac.get(word2[i], 0)
+            carac[word1[i]] = carac.get(word1[i], 0)
+        if carac != carac2:
+            print('No')
+            return False
+        #if sorted(word1) != sorted(word2):
+        #    print('No')
+        #    return False
+        else:
+            print('Yes')
+            return True
+#w1, w2 = 'xxeasdw', 'exxdsaa'
+#Anagram.isanagram(w1,w2)
+
+class ValidParanthesis:
+    def ispvalid(word):
+        stack = []
+        lw = list(word)
+        for i in range(len(lw)):
+            if lw[i] == '(':
+                stack.append(i)
+            elif lw[i] == ')':
+                if stack:
+                    stack.pop()
+                else:
+                    lw[i] = ''
+        for j in stack:
+            lw[j] = ''
+        print(''.join(lw))
+        return ''.join(lw)
+word = 'asd))v((x(())9ck((hf)))s'
+ValidParanthesis.ispvalid(word)
+
+
+#print(w1.count('x'))
+#r = "".join(words)
+           
+
+
+
 
 
 
