@@ -60,9 +60,24 @@ class ValidParanthesis:
         print(''.join(lw))
         return ''.join(lw)
 word = 'asd))v((x(())9ck((hf)))s'
-ValidParanthesis.ispvalid(word)
+#ValidParanthesis.ispvalid(word)
 
-
+class Intervals:
+    def merge(intervals):
+        intervals.sort()
+        lmerged = [intervals[0]]
+        for start,end in intervals[1:]:
+            if lmerged[-1][1] >= start and end >= lmerged[-1][1]:
+                lmerged[-1] = [lmerged[-1][0],end]
+            elif lmerged[-1][0] <= start and lmerged[-1][1] > end:
+                pass
+            else:
+                lmerged.append([start,end])
+        print(lmerged)
+        return lmerged
+intervals = [[1,3],[2,6],[8,10],[15,18]]
+Intervals.merge(intervals)
+#print(intervals[0])
 #print(w1.count('x'))
 #r = "".join(words)
            
