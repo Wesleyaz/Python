@@ -76,7 +76,7 @@ class Intervals:
         print(lmerged)
         return lmerged
 intervals = [[1,3],[2,6],[8,10],[15,18]]
-Intervals.merge(intervals)
+#Intervals.merge(intervals)
 #print(intervals[0])
 #print(w1.count('x'))
 #r = "".join(words)
@@ -89,13 +89,5 @@ Intervals.merge(intervals)
 
 #orderInd = dict()
 #orderInd = { v : k for k,v in enumerate(i)}
-#
 #for k, v in enumerate(i):
 #    orderInd[v] = k
-#
-#print(orderInd)
-#
-#a = 'Wesley'
-#
-#print(len(a))
-#print(range(len(a)))
