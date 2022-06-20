@@ -1,3 +1,7 @@
+from collections import defaultdict
+from email.policy import default
+
+
 order = 'QRBPVFDEIMwHNXSGYJULAZOTCK'
 order = order.lower()
 words = ['wesley','wycliffe','wycli','martha']
@@ -77,17 +81,44 @@ class Intervals:
         return lmerged
 intervals = [[1,3],[2,6],[8,10],[15,18]]
 #Intervals.merge(intervals)
-#print(intervals[0])
+
+class Btree:
+    def lcolumns(root):
+        mapper = defaultdict(list)
+        def mapping(x,y,node):
+            if not node:
+                return
+            mapping(x-1,y+1,node.left)
+            mapping(x+1,y+1,node.right)
+            mapper[(x,y)].append(node.val)
+        mapping(0,0,root)
+        output = []
+        old = float('-inf')
+        for k,v in sorted(mapper.items()):
+            if k[0] == old:
+                output[-1].extend(v)
+            else:
+                output[-1].append([])
+            old = k[0]
+        return output
+
+class Buildings:
+    def oceanview(heights):
+        output = list()
+        for i in reversed(range(len(heights))):
+            if not output:
+                output.append(i)
+            elif heights[output[-1]] < heights[i]:
+                output.append(i)
+        print(sorted(output))
+        return sorted(output)
+heights = [4,3,2,1]
+Buildings.oceanview(heights)
 #print(w1.count('x'))
 #r = "".join(words)
-           
-
-
-
-
-
-
 #orderInd = dict()
 #orderInd = { v : k for k,v in enumerate(i)}
 #for k, v in enumerate(i):
 #    orderInd[v] = k
+#mapper = defaultdict(list) #if key not present, a list is associated to it
+#list.extend([]) #add list to the end of list
