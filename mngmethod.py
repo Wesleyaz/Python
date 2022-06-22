@@ -1,4 +1,5 @@
-from collections import defaultdict
+from ast import AnnAssign
+from collections import Counter, defaultdict
 from email.policy import default
 
 
@@ -113,7 +114,44 @@ class Buildings:
         print(sorted(output))
         return sorted(output)
 heights = [4,3,2,1]
-Buildings.oceanview(heights)
+#Buildings.oceanview(heights)
+
+class Power:
+    def fast(x,n):
+        y=x**n
+        print(y)
+    def cfor(x,n):
+        y = x
+        if n >= 0:
+            for i in range(n-1):
+                y = y * x
+        else:
+            for i in range(-n-1):
+                y = y * x
+            y = 1/y
+        print(y)
+        return y
+x,n = 0.00001,2147483647
+#Power.fast(x,n)
+
+class Recurse:
+    def fib(n):
+        if n == 1:
+            return 1
+        return n + Recurse.fib(n-1)
+    
+    def pow(x,n):
+        if x == 0 : return 0
+        if n == 0 : return 1
+        res = Recurse.pow(x,abs(n)//2)
+        res = res * res
+        if n % 2 != 0:
+            res = res * x
+        return res if n > 0 else 1/res
+
+#res = Recurse.pow(2,29999999)
+#print(res)
+
 #print(w1.count('x'))
 #r = "".join(words)
 #orderInd = dict()
@@ -122,3 +160,74 @@ Buildings.oceanview(heights)
 #    orderInd[v] = k
 #mapper = defaultdict(list) #if key not present, a list is associated to it
 #list.extend([]) #add list to the end of list
+
+class Course:
+    def anagram(s1,s2):
+        if len(s1) != len(s2): return False
+        res = Counter(s1)
+        print(res)
+        Counter(s2)
+        ls2 = list(s2)
+        for i in range(len(s1)):
+            if s1[i] in ls2:
+                ls2.pop(ls2.index(s1[i]))
+            else:
+                return False
+        return True
+        #Using sort, using counter
+    
+    def lfintpos(larr,target):
+        if target not in larr:
+            return [-1,-1]
+        first = float('-inf')
+        for x in range(len(larr)):
+            print(larr[x])
+            if larr[x] == target:
+                if first < 0:
+                    first = x
+                last = x
+        return [first,last]
+    
+    def klargelement(arr,k):
+        if k > len(arr):
+            return 'array smaller than', k
+        return sorted(arr, reverse=True)[k-1]
+        #removing the max elements
+    
+    def are_symetric(root1, root2):
+        if root1 is None and root2 is None:
+            return True
+        elif root1 is None or root2 is None:
+            return False
+        
+        return Course.are_symetric(root1.right, root2.left) and Course.are_symetric(root1.left, root2.right)
+    def symetrictbtree(root):
+        if root is None: return True
+        return Course.are_symetric(root.left,root.right)
+
+    def gasloop(gas,cost,start):
+        glen = len(gas)
+        remaining = 0
+        i = start
+        while i != start:
+            remaining += gas[i] - cost[i]
+            if n < 0:
+                return False
+            i = (i+1)%glen
+        return True 
+
+
+
+s1,s2 = 'banana','aanbban'
+print(Course.anagram(s1,s2))
+
+larr = [1,2,4,5,6,7,23,45,2,6,77668]
+target = 1
+#print(Course.lfintpos(larr,target))
+
+#print(Course.klargelement(larr,target))
+
+                           
+            
+
+
