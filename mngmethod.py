@@ -164,9 +164,6 @@ class Recurse:
 class Course:
     def anagram(s1,s2):
         if len(s1) != len(s2): return False
-        res = Counter(s1)
-        print(res)
-        Counter(s2)
         ls2 = list(s2)
         for i in range(len(s1)):
             if s1[i] in ls2:
@@ -199,7 +196,6 @@ class Course:
             return True
         elif root1 is None or root2 is None:
             return False
-        
         return Course.are_symetric(root1.right, root2.left) and Course.are_symetric(root1.left, root2.right)
     def symetrictbtree(root):
         if root is None: return True
@@ -214,12 +210,20 @@ class Course:
             if n < 0:
                 return False
             i = (i+1)%glen
-        return True 
-
-
-
+        return True
+    
+    def validPalindromesub(s):
+        l,r = 0,len(s) - 1
+        while l < r:
+            if s[l] != s[r]:
+                skipL, skipR = s[l+1:r+1], s[l:r]
+                return skipL == skipL[::-1] or skipR == skipR[::-1]
+            l, r = l + 1, r - 1
+        return False
+s='aba'
+print(Course.validPalindromesub(s))
 s1,s2 = 'banana','aanbban'
-print(Course.anagram(s1,s2))
+#print(Course.anagram(s1,s2))
 
 larr = [1,2,4,5,6,7,23,45,2,6,77668]
 target = 1
