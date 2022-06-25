@@ -7,8 +7,9 @@ except:
 
 counts = dict()
 for line in xfile:
-    line = line.rsplit()
-    words = line.split()
+    #line = line.rsplit()
+    words = line.rsplit()
+    
     for word in words:
         counts[word] = counts.get(word, 0) + 1
 
@@ -21,6 +22,8 @@ lst = sorted(lst, reverse=True)
 
 for val,key in lst[:10]:
     print(key,val)
+
+
 
 #Count Number of From
 #count = 0
