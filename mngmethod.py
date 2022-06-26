@@ -161,6 +161,8 @@ class Recurse:
 #mapper = defaultdict(list) #if key not present, a list is associated to it
 #list.extend([]) #add list to the end of list
 
+
+
 class Course:
     def anagram(s1,s2):
         if len(s1) != len(s2): return False
