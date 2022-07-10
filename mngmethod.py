@@ -232,8 +232,3 @@ target = 1
 #print(Course.lfintpos(larr,target))
 
 #print(Course.klargelement(larr,target))
-
-                           
-            
-
-
