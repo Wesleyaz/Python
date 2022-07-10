@@ -1,29 +1,25 @@
-fname = input('Enter file name: ')
-try:
-    xfile = open(fname)
-except:
-    print('File does not exist')
-    quit()
+class files:
+    def countnumwords():
+        file = open(input()).read()
+        scount = file.count(" ")
+        print(scount+1)
+    def wordsfreq():
+        hfile = open(input())
+        counts = dict()
+        for line in hfile:
+            words = line.rsplit()
+            for word in words:
+                counts[word] = counts.get(word, 0) + 1
+        lst = list()
+        for key,val in counts.items():
+            invertedtup = (val, key)
+            lst.append(invertedtup)
+        lst = sorted(lst, reverse=True)
+        for val,key in lst[:10]:
+            print(key,val)
 
-counts = dict()
-for line in xfile:
-    #line = line.rsplit()
-    words = line.rsplit()
-    
-    for word in words:
-        counts[word] = counts.get(word, 0) + 1
-
-lst = list()
-for key,val in counts.items():
-    invertedtup = (val, key)
-    lst.append(invertedtup)
-
-lst = sorted(lst, reverse=True)
-
-for val,key in lst[:10]:
-    print(key,val)
-
-
+#files.countnumwords()
+#files.wordsfreq()
 
 #Count Number of From
 #count = 0

@@ -15,3 +15,6 @@ for line in hfile:
 print(counts)
 '''
 
+file = open(input()).read()
+scount = file.count(" ")
+print(scount+1)

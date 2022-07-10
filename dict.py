@@ -7,5 +7,6 @@ class dictionaries:
         lvalues = list(d.values())
         print(len(d))
         print(*lvalues, sep=' ')
-n = 4
-dictionaries.numberwordlst(n)
+        return
+#n = 4
+#dictionaries.numberwordlst(n)
