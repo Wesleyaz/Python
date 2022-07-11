@@ -1,3 +1,4 @@
+import re
 class files:
     def countnumwords():
         file = open(input()).read()
@@ -17,7 +18,26 @@ class files:
         lst = sorted(lst, reverse=True)
         for val,key in lst[:10]:
             print(key,val)
-
+    def printtagtypes():
+        nline = input()
+        for line in range(int(nline)):
+            line = input()  
+            line = [ tag+'>' for tag in line.rsplit('>') ]
+            for tag in line:
+                if tag.find('/>') > 0:
+                    print('Empty :', re.findall('<(\w+)', tag)[0])
+                elif tag.find('/') > 0:
+                    print('End :', re.findall('</(\w+)>', tag)[0])
+                elif re.match('<(\w+)>', tag):
+                    print('Start :', re.findall('<(\w+)>', tag)[0])
+                elif tag != '>':
+                    print('Start :', re.findall('<(\w+)', tag)[0])
+                    for attr in tag.split():
+                        if attr.find('=') > 0:
+                            print('->', re.findall('(\w+)=', tag)[0],'>',re.findall('=\'(\w+)\'', tag)[0])
+                        elif '<' not in attr:
+                            print('->',attr,'> None')
+#files.printtagtypes()
 #files.countnumwords()
 #files.wordsfreq()
 
