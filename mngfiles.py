@@ -33,10 +33,8 @@ class files:
                 if attrs:
                     for attr in attrs:
                         print('->',attr[0],'>',attr[1])
-        
         nline = input()
         parser = MyHTMLParser()
-        
         for line in range(int(nline)):
             line = input()
             parser.feed(line)
