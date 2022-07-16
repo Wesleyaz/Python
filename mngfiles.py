@@ -1,5 +1,7 @@
+from itertools import count
 import re
 from html.parser import HTMLParser
+from collections import Counter
 class files:
     def countnumwords():
         file = open(input()).read()
@@ -10,8 +12,10 @@ class files:
         counts = dict()
         for line in hfile:
             words = line.rsplit()
-            for word in words:
-                counts[word] = counts.get(word, 0) + 1
+            #counts = { word:words.count(word) for word in words }
+        #    words = line.rsplit()
+        #    for word in words:
+        #        counts[word] = counts.get(word, 0) + 1
         lst = list()
         for key,val in counts.items():
             invertedtup = (val, key)
@@ -19,6 +23,11 @@ class files:
         lst = sorted(lst, reverse=True)
         for val,key in lst[:10]:
             print(key,val)
+    def wordsfreq_opt():
+        filename = 'test.txt'
+        wordfreq = Counter(open(filename).read().split())
+        #print(list(wordfreq.keys())[:10])
+        print(wordfreq)
     def printtagtypes():
         class MyHTMLParser(HTMLParser):
             def handle_starttag(self, tag, attrs):
@@ -38,6 +47,7 @@ class files:
         for line in range(int(nline)):
             line = input()
             parser.feed(line)
+#files.wordsfreq_opt()
 #files.printtagtypes()
 #files.countnumwords()
 #files.wordsfreq()
