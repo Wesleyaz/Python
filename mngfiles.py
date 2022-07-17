@@ -26,8 +26,7 @@ class files:
     def wordsfreq_opt():
         filename = 'test.txt'
         wordfreq = Counter(open(filename).read().split())
-        #print(list(wordfreq.keys())[:10])
-        print(wordfreq)
+        print(list(wordfreq.keys())[:10])
     def printtagtypes():
         class MyHTMLParser(HTMLParser):
             def handle_starttag(self, tag, attrs):
