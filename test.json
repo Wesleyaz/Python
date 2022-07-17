@@ -1,0 +1,10 @@
+{
+    "name" : "Chuck",
+    "phone" : {
+        "type": "ïntl",
+        "number": "+1 123 1234 13212"
+    },
+    "email" : {
+        "hide" : "yes"
+    }
+}
