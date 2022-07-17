@@ -1,25 +1,25 @@
+from cgitb import text
 import socket
 from collections import Counter
 import urllib
 import urllib.request, urllib.error, urllib.parse
+from weakref import WeakSet
+import xml.etree.ElementTree as ETree
 class Webhttp:
     def browserlib():
         hurl = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
         for line in hurl:
             print(line.decode().strip())
     def countwebtxt():
-        hurl = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
-        wordfreq = dict()
-        for line in hurl:
-            words = line.decode().split()
-            for word in words:
-                wordfreq[word] = wordfreq.get(word, 0) + 1
-        lst = [ (v,k) for k,v in wordfreq.items() ]
-        lst = sorted(lst, reverse=True)
-        for v,k in lst[:10]:
-            print(k,v)
-        #print(wordfreq)
-
+        wordfreq = urllib.request.urlopen('http://data.pr4e.org/romeo.txt').read()
+        print(Counter(wordfreq.decode().split()))
+    def getfromxml():
+        xmldata = open('test.xml').read()
+        datax = ETree.fromstring(xmldata)
+        print('Name:', datax.find('name').text,'| Attr:', datax.find('email').get('hide'))
+        lst = datax.findall('users/user')
+        for user in lst:
+            print('Name:', user.find('name').text,'|','Phone:',user.find('phone').text)
     def httpreqconnect():
         mysock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         mysock.connect(('data.pr4e.org', 80))
@@ -34,4 +34,5 @@ class Webhttp:
 
 #Webhttp.httpconnect()
 #Webhttp.browserlib()
-Webhttp.countwebtxt()
+#Webhttp.countwebtxt()
+Webhttp.getfromxml()

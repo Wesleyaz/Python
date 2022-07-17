@@ -1,0 +1,21 @@
+<person>
+    <name>Wesley</name>
+    <phone type="intl">
+        +55 84 991323223
+    </phone>
+    <email hide="no"/>
+    <users>
+        <user>
+            <name>Wesley</name>
+            <phone type="intl">+55 84 991323223</phone>
+            <email hide="no"/>
+        </user>
+        <user>
+            <name>Martha</name>
+            <phone type="intl">
+                +1 84 99103134
+            </phone>
+            <email hide="yes"/>
+        </user>
+    </users>
+</person>
